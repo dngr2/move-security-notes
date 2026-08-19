@@ -1,7 +1,8 @@
 # move-security-notes
 
 The same idea as my Solidity
-[contract-security-notes](https://github.com/dngr2/contract-security-notes),
+[contract-security-notes](https://github.com/dngr2/contract-security-notes)
+and [solana-security-notes](https://github.com/dngr2/solana-security-notes),
 carried to Move (Aptos): the ways a Move module loses money or control while every
 line looks correct. Each finding is a vulnerable/fixed pair with a Move unit test
 that carries out the exploit.
