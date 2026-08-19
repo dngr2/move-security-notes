@@ -16,9 +16,10 @@ who holds a capability, and which functions trust a bare `address`.
 | # | Module | Bug |
 |---|--------|-----|
 | 1 | `access_control` | A function authorizes on a bare `victim: address` argument instead of a `&signer`, so anyone can act on anyone's resource and drain it. The fix keys the operation to `signer::address_of(account)`. |
+| 2 | `precision` | Floored integer division mints **zero** shares for a nonzero deposit priced against a high asset:share ratio — the depositor pays and gets nothing, and nothing aborts. The fix rejects a deposit that would mint nothing (or uses a virtual-shares offset). |
 
 More coming: capability/witness confusion, `public` vs `entry`/`friend` exposure,
-generic type-parameter authority, and precision/rounding in fixed-point math.
+and generic type-parameter authority.
 
 ## Run
 
