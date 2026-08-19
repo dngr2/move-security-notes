@@ -1,0 +1,16 @@
+[package]
+name = "move_security_notes"
+version = "1.0.0"
+authors = []
+
+[addresses]
+move_security_notes = "0xCAFE"
+
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "aptos-cli-v4.1.0"
+subdir = "aptos-move/framework/aptos-framework"
+
+[dev-dependencies]
