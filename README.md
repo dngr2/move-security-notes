@@ -18,6 +18,7 @@ who holds a capability, and which functions trust a bare `address`.
 | 1 | `access_control` | A function authorizes on a bare `victim: address` argument instead of a `&signer`, so anyone can act on anyone's resource and drain it. The fix keys the operation to `signer::address_of(account)`. |
 | 2 | `precision` | Floored integer division mints **zero** shares for a nonzero deposit priced against a high asset:share ratio — the depositor pays and gets nothing, and nothing aborts. The fix rejects a deposit that would mint nothing (or uses a virtual-shares offset). |
 | 3 | `missing_exists` | A function borrows a resource that may be absent, so the transaction aborts — and a griefer who never initializes their account can brick any shared flow that touches it (denial of service). The fix checks `exists<T>` and degrades gracefully. |
+| 4 | `fee_bypass` | A percentage fee floored by integer division rounds to **zero** for small amounts, so a user splits one transfer into many tiny ones and pays no fee — a value leak for the protocol. The fix charges a minimum fee (or rounds up) on any nonzero transfer. |
 
 More coming: capability/witness confusion, `public` vs `entry`/`friend` exposure,
 and generic type-parameter authority.
